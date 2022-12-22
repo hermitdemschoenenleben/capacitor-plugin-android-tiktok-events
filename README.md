@@ -1,6 +1,6 @@
 # capacitor-plugin-android-tiktok-events
 
-bridge for tiktok events sdk on android / capacitor
+**Important note**: this plugin is not generic! It is just a temporary workaround that hardcodes lots of stuff.
 
 ## Install
 
@@ -14,6 +14,8 @@ npx cap sync
 <docgen-index>
 
 * [`echo(...)`](#echo)
+* [`prepare()`](#prepare)
+* [`logEvent(...)`](#logevent)
 
 </docgen-index>
 
@@ -31,6 +33,32 @@ echo(options: { value: string; }) => Promise<{ value: string; }>
 | **`options`** | <code>{ value: string; }</code> |
 
 **Returns:** <code>Promise&lt;{ value: string; }&gt;</code>
+
+--------------------
+
+
+### prepare()
+
+```typescript
+prepare() => Promise<any>
+```
+
+**Returns:** <code>Promise&lt;any&gt;</code>
+
+--------------------
+
+
+### logEvent(...)
+
+```typescript
+logEvent(options: { event: string; }) => Promise<any>
+```
+
+| Param         | Type                            |
+| ------------- | ------------------------------- |
+| **`options`** | <code>{ event: string; }</code> |
+
+**Returns:** <code>Promise&lt;any&gt;</code>
 
 --------------------
 

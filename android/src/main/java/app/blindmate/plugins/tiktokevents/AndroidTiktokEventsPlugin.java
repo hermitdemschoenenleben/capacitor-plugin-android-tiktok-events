@@ -19,4 +19,19 @@ public class AndroidTiktokEventsPlugin extends Plugin {
         ret.put("value", implementation.echo(value));
         call.resolve(ret);
     }
+
+    @PluginMethod
+    public void prepare(PluginCall call) {
+        JSObject ret = new JSObject();
+        implementation.prepare();
+        call.resolve(ret);
+    }
+
+    @PluginMethod
+    public void logEvent(PluginCall call) {
+        String event = call.getString("event");
+        JSObject ret = new JSObject();
+        implementation.logEvent(event);
+        call.resolve(ret);
+    }
 }
