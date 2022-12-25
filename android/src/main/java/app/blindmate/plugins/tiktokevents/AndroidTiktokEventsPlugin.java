@@ -8,6 +8,8 @@ import com.getcapacitor.annotation.CapacitorPlugin;
 
 @CapacitorPlugin(name = "AndroidTiktokEvents")
 public class AndroidTiktokEventsPlugin extends Plugin {
+    public static final String CONFIG_KEY_PREFIX = "plugins.AndroidTiktokEvents.";
+    private static final String PLUGIN_TAG = "AndroidTiktokEvents";
 
     private AndroidTiktokEvents implementation = new AndroidTiktokEvents();
 
@@ -23,7 +25,16 @@ public class AndroidTiktokEventsPlugin extends Plugin {
     @PluginMethod
     public void prepare(PluginCall call) {
         JSObject ret = new JSObject();
-        implementation.prepare();
+
+
+        String androidPackageName = getConfig().getString("androidPackageName");
+        String tiktokAppID = getConfig().getString("tiktokAppID");
+
+        implementation.prepare(
+          this.getActivity().getApplicationContext(),
+          androidPackageName,
+          tiktokAppID
+        );
         call.resolve(ret);
     }
 
