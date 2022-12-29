@@ -1,21 +1,15 @@
 package app.blindmate.plugins.tiktokevents;
 
-import android.content.Context;
+import android.util.Log;
 
+import android.content.Context;
 import com.tiktok.TikTokBusinessSdk;
 import com.tiktok.TikTokBusinessSdk.TTConfig;
 
-import android.util.Log;
 
 public class AndroidTiktokEvents {
 
-    public String echo(String value) {
-        Log.i("Echo", value);
-        return value;
-    }
-
     public void prepare(Context applicationContext, String androidPackageName, String tiktokAppID) {
-        Log.i("Initialize Tiktok Events Bridge", androidPackageName);
         // Set AppId & TikTok App ID in application code, and customize the
         // configurations.
 
@@ -40,8 +34,6 @@ public class AndroidTiktokEvents {
     }
 
     public void logEvent(String event) {
-      Log.i("Tiktok Events Bridge: Log", event);
-
       TikTokBusinessSdk.trackEvent(event);
     }
 }
