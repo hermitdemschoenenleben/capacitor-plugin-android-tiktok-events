@@ -1,5 +1,7 @@
 package app.blindmate.plugins.tiktokevents;
 
+import android.os.Looper;
+import android.os.Handler;
 import android.util.Log;
 
 import com.getcapacitor.JSObject;
@@ -27,11 +29,16 @@ public class AndroidTiktokEventsPlugin extends Plugin {
           "config is " + androidPackageName + tiktokAppID
         );
 
-        implementation.prepare(
-          this.getActivity().getApplicationContext(),
-          androidPackageName,
-          tiktokAppID
+        new Handler(Looper.getMainLooper()).post(
+            () -> {
+                implementation.prepare(
+                    this.getActivity().getApplicationContext(),
+                    androidPackageName,
+                    tiktokAppID
+                );
+            }
         );
+
         call.resolve(ret);
     }
 

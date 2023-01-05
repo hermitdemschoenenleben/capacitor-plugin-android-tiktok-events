@@ -21,7 +21,7 @@ public class AndroidTiktokEvents {
                 //.disableInstallLogging() // Disable auto tracking InstallApp
                 //.disableLaunchLogging() // Disable auto tracking LaunchApp
                 //.disableRetentionLogging() // Disable auto tracking 2Dretention
-                .setLogLevel(TikTokBusinessSdk.LogLevel.DEBUG); // prints debug log
+                .setLogLevel(TikTokBusinessSdk.LogLevel.NONE); // DEBUG to print debug log
 
         TikTokBusinessSdk.initializeSdk(ttConfig);
 
